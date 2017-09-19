@@ -29,6 +29,12 @@ executables:
       - optparse-applicative
       - gitrev
 
+  ioref-exe:
+    source-dirs:  app
+    main:         IORefMain.hs
+    dependencies: 
+      - beautiful-concurrency
+
 tests:
     beautiful-concurrency-test:
       source-dirs: test

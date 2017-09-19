@@ -41,6 +41,20 @@ executable beautiful-concurrency
     , gitrev
   other-modules:
       Args
+      IORefMain
+  default-language: Haskell2010
+
+executable ioref-exe
+  main-is: IORefMain.hs
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists
+  build-depends:
+      base
+    , beautiful-concurrency
+  other-modules:
+      Args
+      Main
   default-language: Haskell2010
 
 test-suite beautiful-concurrency-test
@@ -60,5 +74,6 @@ test-suite beautiful-concurrency-test
     , tasty-quickcheck
     , tasty-discover
   other-modules:
+      IORefTest
       Test
   default-language: Haskell2010
