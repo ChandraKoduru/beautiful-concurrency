@@ -4,7 +4,7 @@ module IORefTest where
 import Lib (incRef)
 import Data.IORef (newIORef, readIORef)
 -- import Test.Tasty(TestTree)
-import Test.Tasty.HUnit ((@?=), Assertion)
+import Test.Tasty.HUnit ((@?=), Assertion, assert)
 -- import Test.Tasty.Hspec (Spec, describe, it, shouldBe)
 -- import Test.Tasty.QuickCheck(testProperty)
 
@@ -24,6 +24,10 @@ unit_ioref_increment_by_one = do
 --       head [23 ..] `shouldBe` (23 :: Int)
 
 -- QuickCheck property
--- prop_additionCommutative :: Int -> Int -> Bool
--- prop_additionCommutative a b = a + b == b + a
-
+prop_incrementOnlyByOne :: Int -> IO ()
+prop_incrementOnlyByOne a = do
+  var <- newIORef a
+  incRef var
+  val <- readIORef var
+  --val @?= ((a+1) :: Int)
+  assert (val == (a+1))
