@@ -1,0 +1,45 @@
+name:                beautiful-concurrency
+version:             0.1.0.0
+#synopsis:
+#description:
+homepage:            https://github.com/chandrakoduru/beautiful-concurrency#readme
+license:             BSD3
+author:              Chandra Koduru
+maintainer:          chandrakoduru@outlook.com
+copyright:           ThisYear
+category:            Learning Haskell
+ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists
+extra-source-files:
+- README.md
+
+dependencies:
+  - base
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - Lib
+
+executables:
+  beautiful-concurrency:
+    source-dirs:  app
+    main:         Main.hs
+    dependencies: 
+      - beautiful-concurrency
+      - optparse-applicative
+      - gitrev
+
+tests:
+    beautiful-concurrency-test:
+      source-dirs: test
+      main: Driver.hs
+      dependencies:
+        - beautiful-concurrency
+        - hspec
+        - QuickCheck
+        - tasty
+        - tasty-hspec
+        - tasty-hunit
+        - tasty-quickcheck
+        - tasty-discover
+    
