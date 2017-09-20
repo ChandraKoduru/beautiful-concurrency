@@ -1,4 +1,4 @@
-module Main where
+module IORefMain where
 
 import Lib(incRef)
 

@@ -28,12 +28,21 @@ executables:
       - beautiful-concurrency
       - optparse-applicative
       - gitrev
+    ghc-options: -main-is Main
 
   ioref-exe:
     source-dirs:  app
     main:         IORefMain.hs
     dependencies: 
       - beautiful-concurrency
+    ghc-options: -main-is IORefMain
+
+  iofork-exe:
+    source-dirs:  app
+    main:         IOForkMain.hs
+    dependencies: 
+      - beautiful-concurrency
+    ghc-options: -main-is IOForkMain
 
 tests:
     beautiful-concurrency-test:

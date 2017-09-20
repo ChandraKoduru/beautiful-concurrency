@@ -33,7 +33,7 @@ executable beautiful-concurrency
   main-is: Main.hs
   hs-source-dirs:
       app
-  ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists
+  ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists -main-is Main
   build-depends:
       base
     , beautiful-concurrency
@@ -41,20 +41,39 @@ executable beautiful-concurrency
     , gitrev
   other-modules:
       Args
+      IOForkMain
       IORefMain
+      STMMain
+  default-language: Haskell2010
+
+executable iofork-exe
+  main-is: IOForkMain.hs
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists -main-is IOForkMain
+  build-depends:
+      base
+    , beautiful-concurrency
+  other-modules:
+      Args
+      IORefMain
+      Main
+      STMMain
   default-language: Haskell2010
 
 executable ioref-exe
   main-is: IORefMain.hs
   hs-source-dirs:
       app
-  ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists
+  ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists -main-is IORefMain
   build-depends:
       base
     , beautiful-concurrency
   other-modules:
       Args
+      IOForkMain
       Main
+      STMMain
   default-language: Haskell2010
 
 test-suite beautiful-concurrency-test
