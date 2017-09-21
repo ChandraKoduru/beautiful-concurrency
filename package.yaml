@@ -44,6 +44,14 @@ executables:
       - beautiful-concurrency
     ghc-options: -main-is IOForkMain
 
+  transfer-exe:
+      source-dirs:  app
+      main:         TransferMain.hs
+      dependencies: 
+        - beautiful-concurrency
+        - stm
+      ghc-options: -main-is TransferMain
+
 tests:
     beautiful-concurrency-test:
       source-dirs: test

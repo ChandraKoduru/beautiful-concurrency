@@ -43,7 +43,7 @@ executable beautiful-concurrency
       Args
       IOForkMain
       IORefMain
-      STMMain
+      TransferMain
   default-language: Haskell2010
 
 executable iofork-exe
@@ -58,7 +58,7 @@ executable iofork-exe
       Args
       IORefMain
       Main
-      STMMain
+      TransferMain
   default-language: Haskell2010
 
 executable ioref-exe
@@ -73,7 +73,23 @@ executable ioref-exe
       Args
       IOForkMain
       Main
-      STMMain
+      TransferMain
+  default-language: Haskell2010
+
+executable transfer-exe
+  main-is: TransferMain.hs
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists -main-is TransferMain
+  build-depends:
+      base
+    , beautiful-concurrency
+    , stm
+  other-modules:
+      Args
+      IOForkMain
+      IORefMain
+      Main
   default-language: Haskell2010
 
 test-suite beautiful-concurrency-test
