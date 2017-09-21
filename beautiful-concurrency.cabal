@@ -23,8 +23,10 @@ library
   ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists
   build-depends:
       base
+    , stm
   exposed-modules:
       Lib
+      BankingSystem
   other-modules:
       Paths_beautiful_concurrency
   default-language: Haskell2010
@@ -84,7 +86,6 @@ executable transfer-exe
   build-depends:
       base
     , beautiful-concurrency
-    , stm
   other-modules:
       Args
       IOForkMain

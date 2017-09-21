@@ -19,6 +19,9 @@ library:
   source-dirs: src
   exposed-modules:
     - Lib
+    - BankingSystem
+  dependencies:
+    - stm
 
 executables:
   beautiful-concurrency:
@@ -49,7 +52,6 @@ executables:
       main:         TransferMain.hs
       dependencies: 
         - beautiful-concurrency
-        - stm
       ghc-options: -main-is TransferMain
 
 tests:
