@@ -4,6 +4,7 @@ import Control.Concurrent.STM (readTVar, writeTVar, TVar, STM, atomically, newTV
 
 type Applicant = String
 type Amount = TVar Int
+
 data Account = Account {
   applicant :: Applicant,
   balance :: Amount
