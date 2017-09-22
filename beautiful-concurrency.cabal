@@ -101,6 +101,7 @@ test-suite beautiful-concurrency-test
   ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists
   build-depends:
       base
+    , stm
     , beautiful-concurrency
     , hspec
     , QuickCheck
@@ -110,6 +111,7 @@ test-suite beautiful-concurrency-test
     , tasty-quickcheck
     , tasty-discover
   other-modules:
+      BankingSystemTest
       IORefTest
       Test
   default-language: Haskell2010

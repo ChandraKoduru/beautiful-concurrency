@@ -59,6 +59,7 @@ tests:
       source-dirs: test
       main: Driver.hs
       dependencies:
+        - stm
         - beautiful-concurrency
         - hspec
         - QuickCheck
@@ -67,4 +68,3 @@ tests:
         - tasty-hunit
         - tasty-quickcheck
         - tasty-discover
-    

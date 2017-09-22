@@ -9,6 +9,9 @@ data Account = Account {
   balance :: Amount
 }
 
+getBalance :: Account -> IO Int
+getBalance account = atomically (readTVar $ balance account)
+
 withdraw :: Account -> Int -> STM ()
 withdraw acc amount = do
   bal <- readTVar $ balance acc
